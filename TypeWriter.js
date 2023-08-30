@@ -32,7 +32,7 @@ class TypeWriter {
     createCursor() {
         // console.log(this);
         const cursorElem = document.createElement('span');
-        cursorElem.id = 'typewriter-cursor';
+        cursorElem.id = this?.cursor.id || 'typewriter-cursor';
         cursorElem.style.display = 'inline-block';
         // cursorElem.style.height = this.cursor.height || `${this.element.offsetHeight}px`;
         // cursorElem.style.height = this?.cursor.height || '1ch';
@@ -47,7 +47,7 @@ class TypeWriter {
 
         this.cursor.keyFrames = document.createElement('style');
         this.cursor.keyFrames.innerHTML = `
-        @keyframes cursorBlink {
+        @keyframes cursor-blink {
             from {
                 opacity: 0;
             }
@@ -55,8 +55,8 @@ class TypeWriter {
                 opacity: 1;
             }
         }
-        #typewriter-cursor {
-            animation: cursorBlink ${this.cursor.blinkRate || 1000}ms infinite
+        #${this?.cursor.id || 'typewriter-cursor'} {
+            animation: cursor-blink ${this.cursor.blinkRate || 1000}ms infinite
             ;
         }`;
     }
@@ -102,7 +102,7 @@ const typeWriter = new TypeWriter({
      words: ['Web Development', 'Machine Learning', 'Data Science'], 
      element: '#typewriter',
      wait: 1500,
-     cursor: {color: '#777', width: '.2rem'}
+     cursor: {color: '#777', width: '.2rem', id: 'typewriter-cursor'}
 });
 
 export { typeWriter, TypeWriter };

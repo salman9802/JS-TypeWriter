@@ -24,6 +24,7 @@ import { typeWriter, TypeWriter } from "./js/TypeWriter.js";
     - **rightGap**: Value for `margin-right` for cursor. Defaults to `.1rem`
     - **color**: Color of cursor. Defaults to `#000`.
     - **blinkRate**: Interval for blinking of cursor in milliseconds. Defaults to `1000`.
+    - **id**: Id for cursor. Defaults to `typewriter-cursor`.
 - **type**: Set to true to start typing.
 
 ## Usage/Examples
